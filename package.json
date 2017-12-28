@@ -6,6 +6,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
+    "styled-components": "^2.4.0",
     "youtube-api-search": "0.0.5"
   },
   "scripts": {
