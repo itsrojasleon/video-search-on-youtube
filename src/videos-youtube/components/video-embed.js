@@ -1,20 +1,79 @@
 import React from 'react'
 import Loading from './loading'
+import styled from 'styled-components'
 
-const VideoEmbed = ({ video }) => {
+const Container = styled.div`
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+`
 
-	if(!video) {
-		return <Loading />
+const Iframe = styled.iframe`
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+`
+
+const SuperContainer = styled.div`
+	width: 50%;
+	margin: auto;
+	border: 1px solid #ccc;
+	padding: 10px;
+	@media(max-width: 820px) {
+		width: 90%;
 	}
-	const videoId = video.id.videoId
-	const url = `https://www.youtube.com/embed/${videoId}`
+`
+class VideoEmbed extends React.Component {
 
-	return (
-		<div>
-			<div>
-				<iframe title="video" src={url}></iframe>
-			</div>
-		</div>
-	)
+	state = { isClicked: false }
+
+	handleClick = () => {
+		this.setState({ isClicked: !this.state.isClicked })
+	}
+
+	render() {
+		if(!this.props.video) {
+			return <Loading />
+		}
+		if(this.props.video) {
+			const { video } = this.props
+			const videoId = video.id.videoId
+			const url = `https://www.youtube.com/embed/${videoId}`
+
+			const style = {
+				backgroundColor: '#D32F2F',
+				color: '#fff',
+				padding: '8px',
+				fontSize: '18px',
+				borderRadius: '6px',
+				display: 'block',
+				textAlign: 'center',
+				margin: 'auto'
+			}
+			return (
+				<SuperContainer>
+					<Container>
+						<Iframe title="video" src={url}></Iframe>
+					</Container>
+					<div>
+						<p><i style={{
+							fontSize: '30px'
+						}} className="fa fa-user-secret" aria-hidden="true"></i> {video.snippet.channelTitle}</p>
+						<h3>{video.snippet.title}</h3>
+						<br />
+						<div>
+							{!this.state.isClicked
+								? <button style={style} onClick={this.handleClick}>See content</button>
+								: <p onClick={this.handleClick}>{video.snippet.description}</p> }
+						</div>
+					</div>
+				</SuperContainer>
+			)
+		}
+	}
 }
 export default VideoEmbed
