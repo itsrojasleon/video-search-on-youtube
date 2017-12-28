@@ -50,7 +50,6 @@ export default class SearchBar extends Component {
 					value={this.state.term}
 					onChange={event => this.handleSearch(event.target.value)}
 				/>
-				<Button>Search</Button>
 			</Search>
 		)
 	}

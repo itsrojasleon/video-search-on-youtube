@@ -30,6 +30,11 @@ class App extends Component {
       <div>
         <SearchBar onSearch={term => this.videoSearch(term)} />
         <VideoEmbed video={this.state.selectedVideo} />
+        <p style={{
+          color: '#727272',
+          textAlign: 'center',
+          marginTop: '20px'
+        }}>Other videos</p>
         <Video
           videos={this.state.videos}
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}

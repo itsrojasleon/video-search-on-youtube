@@ -23,6 +23,7 @@ const SuperContainer = styled.div`
 	margin: auto;
 	border: 1px solid #ccc;
 	padding: 10px;
+	margin-bottom: 20px;
 	@media(max-width: 820px) {
 		width: 90%;
 	}
@@ -47,12 +48,13 @@ class VideoEmbed extends React.Component {
 			const style = {
 				backgroundColor: '#D32F2F',
 				color: '#fff',
-				padding: '8px',
+				padding: '10px',
 				fontSize: '18px',
 				borderRadius: '6px',
 				display: 'block',
 				textAlign: 'center',
-				margin: 'auto'
+				margin: 'auto',
+				width: '40%'
 			}
 			return (
 				<SuperContainer>
@@ -67,7 +69,7 @@ class VideoEmbed extends React.Component {
 						<br />
 						<div>
 							{!this.state.isClicked
-								? <button style={style} onClick={this.handleClick}>See content</button>
+								? <button style={style} onClick={this.handleClick}>See description</button>
 								: <p onClick={this.handleClick}>{video.snippet.description}</p> }
 						</div>
 					</div>
