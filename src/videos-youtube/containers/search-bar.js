@@ -19,20 +19,6 @@ const Input = styled.input`
 		width: 90%;
 	}
 `
-const Button = styled.button`
-	display: none;
-	@media(max-width: 820px) {
-		display:inline-block;
-		width: 50%;
-		border-radius: 5px;
-		margin-left: 10px;
-		padding: 10px;
-		margin-top: 12px;
-		background-color: rgb(42,48,61);
-		color: #fff;
-		font-size: 18px;
-	}
-`
 
 export default class SearchBar extends Component {
 	state = { term: ''}
