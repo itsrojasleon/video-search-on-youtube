@@ -52,7 +52,7 @@ class VideoEmbed extends React.Component {
 					</Container>
 					<div>
 						<h3>{snippet.title}</h3>
-						<h4>Published: {convertDate(snippet.publishedAt)}</h4>
+						<h4 style={{color: '#616161'}}>Published on: {convertDate(snippet.publishedAt)}</h4>
 					</div>
 				</SuperContainer>
 			)

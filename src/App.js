@@ -3,6 +3,7 @@ import SearchBar from './videos-youtube/containers/search-bar'
 import Video from './videos-youtube/components/video'
 import VideoEmbed from './videos-youtube/components/video-embed'
 import YTSearch from 'youtube-api-search'
+import Footer from './videos-youtube/components/footer'
 
 import styled from 'styled-components'
 
@@ -39,15 +40,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{height: '100vh'}}>
         <SearchBar onSearch={term => this.videoSearch(term)} />
-          <Grid>
-            <VideoEmbed video={this.state.selectedVideo} />
-            <Video
-              videos={this.state.videos}
-              onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-            />
-          </Grid>
+        <Grid>
+          <VideoEmbed video={this.state.selectedVideo} />
+          <Video
+            videos={this.state.videos}
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          />
+        </Grid>
+        <Footer />
       </div>
     );
   }
