@@ -52,6 +52,19 @@ const Content = styled.div`
 	position: relative;
 	@media(max-width: 769px) {
 		width: 100%;
+		display: grid;
+		grid-template-columns: 6fr 1fr;
+	}
+`;
+const ButtonSearch = styled.button`
+	display: none;
+	font-size: 16px;
+	border: none;
+	background-color: #48A8F5;
+	color: #fff;
+	border-radius: 4px;
+	@media(max-width: 769px) {
+		display: block;
 	}
 `;
 
@@ -73,6 +86,7 @@ export default class SearchBar extends Component {
 						value={this.state.term}
 						onChange={event => this.handleSearch(event.target.value)}
 					/>
+					<ButtonSearch onClick={() => this.handleSearch(this.state.term)}>Go!</ButtonSearch>
 				</Content>
 				<A href="https://github.com/rojasleon/video-search-on-youtube"><i style={{fontSize: 23}} className="fab fa-github"></i></A>
 			</Search>
