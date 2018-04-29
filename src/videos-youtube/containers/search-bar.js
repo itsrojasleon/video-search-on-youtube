@@ -12,7 +12,8 @@ const Search = styled.div`
 	align-items: center;
 	border-bottom: 1px solid #F5F5F5;
 	@media(max-width: 769px) {
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 1fr;
 	}
 `
 const Input = styled.input`
@@ -20,19 +21,20 @@ const Input = styled.input`
 	border-radius: 4px;
 	background-color: rgb(245,245,245);
 	color: #222;
-	width: 50%;
+	width: 60%;
 	font-size: 16px;
 	border: none;
 	margin: 0;
 	transition: .3s;
 	padding-right: 30px;
+	box-sizing: border-box;
 	text-indent: 30px;
 	&:focus {
 		outline: none;
 		border: 1px solid #F5F5F5;
 		background: white;
 	}
-	@media(max-width: 820px) {
+	@media(max-width: 769px) {
 		width: 100%;
 		font-size: 18px;
 	}
@@ -40,6 +42,17 @@ const Input = styled.input`
 const A = styled.a`
 	color: black;
 	textDecoration: none;
+	@media(max-width: 769px) {
+		display: none;
+	}
+`;
+
+const Content = styled.div`
+	width: 50%;
+	position: relative;
+	@media(max-width: 769px) {
+		width: 100%;
+	}
 `;
 
 export default class SearchBar extends Component {
@@ -53,14 +66,14 @@ export default class SearchBar extends Component {
 	render() {
 		return (
 			<Search>
-				<div style={{width: '50%', position: 'relative'}}>
+				<Content>
 				  <a style={{ fontSize: '16px', position: 'absolute', top: '10px', left: '7px' }}><i style={{color: 'rgb(136,136,136)'}} className="fas fa-search"></i></a>
 					<Input
 						placeholder="Search"
 						value={this.state.term}
 						onChange={event => this.handleSearch(event.target.value)}
 					/>
-				</div>
+				</Content>
 				<A href="https://github.com/rojasleon/video-search-on-youtube"><i style={{fontSize: 23}} className="fab fa-github"></i></A>
 			</Search>
 		)
