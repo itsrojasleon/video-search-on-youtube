@@ -88,7 +88,7 @@ export default class SearchBar extends Component {
 					/>
 					<ButtonSearch onClick={() => this.handleSearch(this.state.term)}>Go!</ButtonSearch>
 				</Content>
-				<A href="https://github.com/rojasleon/video-search-on-youtube"><i style={{fontSize: 23}} className="fab fa-github"></i></A>
+				<A target="_blank" href="https://github.com/rojasleon/video-search-on-youtube"><i style={{fontSize: 23}} className="fab fa-github"></i></A>
 			</Search>
 		)
 	}
