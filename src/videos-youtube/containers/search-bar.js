@@ -5,23 +5,29 @@ const Search = styled.div`
 	display: flex;
 	justify-content: space-around;
 	padding: 10px;
-	box-shadow: 0 0 20px 10px #EEEEEE;
 	margin-bottom: 20px;
 	flex-wrap:wrap;
-	background: rgb(236,243,248);
+	background: white;
 	width: 100%;
+	align-items: center;
+	border-bottom: 1px solid #F5F5F5;
 `
 const Input = styled.input`
-	padding: 6px;
-	background: rgb(236,243,248);
+	padding: 10px;
+	border-radius: 4px;
+	background-color: rgb(245,245,245);
+	color: #222;
 	width: 50%;
-	border-radius: 30px;
-	background :red;
-	border: none;
 	font-size: 16px;
-	text-align: center;
+	border: none;
+	margin: 0;
+	transition: .3s;
+	padding-right: 30px;
+	text-indent: 30px;
 	&:focus {
 		outline: none;
+		border: 1px solid #F5F5F5;
+		background: white;
 	}
 	@media(max-width: 820px) {
 		width: 90%;
@@ -39,15 +45,15 @@ export default class SearchBar extends Component {
 	render() {
 		return (
 			<Search>
-				<div style={{width: '50%'}}>
+				<div style={{width: '50%', position: 'relative'}}>
+				  <a href="https://github.com/rojasleon/video-search-on-youtube" style={{ fontSize: '16px', color: 'black', textDecoration: 'none', position: 'absolute', top: '10px', left: '7px' }}><i style={{color: 'rgb(136,136,136)'}} className="fas fa-search"></i></a>
 					<Input
-						placeholder="Search..."
+						placeholder="Search"
 						value={this.state.term}
 						onChange={event => this.handleSearch(event.target.value)}
 					/>
-					<span>Lupa</span>
 				</div>
-				<a href="https://github.com/rojasleon/video-search-on-youtube" style={{ borderRadius: '20px', fontSize: '16px', background: 'rgb(236,243,248)' }}>Github</a>
+				<i style={{fontSize: 23}} className="fab fa-github"></i>
 			</Search>
 		)
 	}
