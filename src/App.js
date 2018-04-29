@@ -4,7 +4,19 @@ import Video from './videos-youtube/components/video'
 import VideoEmbed from './videos-youtube/components/video-embed'
 import YTSearch from 'youtube-api-search'
 
+import styled from 'styled-components'
+
 const API_KEY = 'AIzaSyA-HhHRzj_axarvIV8LnIwG9NZ2OvTfSrs'
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  width: 80%;
+  height: 87vh;
+  margin: auto;
+  overflow: hidden;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +28,7 @@ class App extends Component {
     this.videoSearch('javascript')
   }
 
-  videoSearch(term = 'javascript') {
+  videoSearch(term) {
     YTSearch({key: API_KEY, term}, (videos) => {
       this.setState({
         videos,
@@ -29,16 +41,13 @@ class App extends Component {
     return (
       <div>
         <SearchBar onSearch={term => this.videoSearch(term)} />
-        <VideoEmbed video={this.state.selectedVideo} />
-        <p style={{
-          color: '#727272',
-          textAlign: 'center',
-          marginTop: '20px'
-        }}>Other videos</p>
-        <Video
-          videos={this.state.videos}
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-        />
+          <Grid>
+            <VideoEmbed video={this.state.selectedVideo} />
+            <Video
+              videos={this.state.videos}
+              onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            />
+          </Grid>
       </div>
     );
   }

@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const ContainerVideo = styled.div`
 	display: flex;
-	justify-content: space-around;
-	flex-direction: row;
-	flex-wrap: wrap;
+	flex-direction: column;
 	width: 100%;
+	height: 70%;
+	overflow: auto;
 	@media(max-width: 820px) {
 		flex-direction: column;
 	}

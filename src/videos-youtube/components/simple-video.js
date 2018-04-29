@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Video = styled.div`
-	width: 25%;
-	margin-bottom: 20px;
-	text-align: center;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(5, 30px);
+	grid-gap: 5px;
 	&:hover {
 		cursor: pointer;
 	}
@@ -14,12 +16,12 @@ const Video = styled.div`
 `
 
 const SimpleVideo = ({ video, onVideoSelect }) => {
-	const image = video.snippet.thumbnails.default.url
+	const image = video.snippet.thumbnails.high.url
 	const title = video.snippet.title
 	return (
 		<Video onClick={() => onVideoSelect(video)}>
 			<div>
-				<img style={{ height: '100px', width: 'auto' }} src={image} alt={title}/>
+				<img style={{width: '100%'}} src={image} alt={title}/>
 			</div>
 			<div>
 				<div style={{marginBottom: '10px'}}>{title}</div>
