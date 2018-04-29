@@ -1,6 +1,7 @@
 import React from 'react'
 import Loading from './loading'
 import styled from 'styled-components'
+import { convertDate } from '../../utils/helpers'
 
 const Container = styled.div`
 	position: relative;
@@ -51,6 +52,7 @@ class VideoEmbed extends React.Component {
 					</Container>
 					<div>
 						<h3>{snippet.title}</h3>
+						<h4>Published: {convertDate(snippet.publishedAt)}</h4>
 					</div>
 				</SuperContainer>
 			)
