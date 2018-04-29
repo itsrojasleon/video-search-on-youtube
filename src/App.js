@@ -17,6 +17,12 @@ const Grid = styled.div`
   height: 87vh;
   margin: auto;
   overflow: hidden;
+  @media(max-width: 769px) {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 100%;
+    justify-items: center;
+  }
 `;
 
 class App extends Component {

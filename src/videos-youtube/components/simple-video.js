@@ -7,8 +7,10 @@ const Video = styled.div`
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: repeat(5, 30px);
 	grid-gap: 5px;
+	transition: .3s;
 	&:hover {
 		cursor: pointer;
+		background: #f5f5f5;
 	}
 	@media(max-width: 820px) {
 		width: 100%;

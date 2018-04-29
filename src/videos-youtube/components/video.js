@@ -10,6 +10,8 @@ const ContainerVideo = styled.div`
 	overflow: auto;
 	@media(max-width: 820px) {
 		flex-direction: column;
+		overflow: hidden;
+		height: 100%;
 	}
 `
 
