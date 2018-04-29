@@ -43,7 +43,6 @@ class VideoEmbed extends React.Component {
 			const videoId = video.id.videoId
 			const url = `https://www.youtube.com/embed/${videoId}`
 
-			console.log(this.props.video);
 			const { snippet } = this.props.video;
 			return (
 				<SuperContainer>
