@@ -21,6 +21,7 @@ const Input = styled.input`
   border-radius: 4px;
   background-color: rgb(245, 245, 245);
   color: #222;
+  border: 1px solid rgb(245, 245, 245);
   width: 60%;
   font-size: 16px;
   border: none;
@@ -31,7 +32,9 @@ const Input = styled.input`
   text-indent: 30px;
   &:focus {
     outline: none;
-    border: 1px solid #f5f5f5;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3),
+      0 1px 3px 1px rgba(65, 69, 73, 0.15);
     background: white;
   }
   @media (max-width: 769px) {
