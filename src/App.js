@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import SearchBar from './videos-youtube/containers/search-bar'
-import Video from './videos-youtube/components/video'
-import VideoEmbed from './videos-youtube/components/video-embed'
-import YTSearch from 'youtube-api-search'
-import Footer from './videos-youtube/components/footer'
-
-import styled from 'styled-components'
-
-const API_KEY = 'AIzaSyA-HhHRzj_axarvIV8LnIwG9NZ2OvTfSrs'
+import SearchBar from './videos-youtube/containers/search-bar';
+import Video from './videos-youtube/components/video';
+import VideoEmbed from './videos-youtube/components/video-embed';
+import YTSearch from 'youtube-api-search';
+import Footer from './videos-youtube/components/footer';
+import styled from 'styled-components';
+import { API_KEY } from './utils/apiKey';
 
 const Grid = styled.div`
   display: grid;
@@ -17,7 +15,7 @@ const Grid = styled.div`
   height: 87vh;
   margin: auto;
   overflow: hidden;
-  @media(max-width: 769px) {
+  @media (max-width: 769px) {
     grid-template-columns: 1fr;
     height: auto;
     width: 100%;
@@ -27,32 +25,31 @@ const Grid = styled.div`
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       videos: [],
       selectedVideo: null
-    }
-    this.videoSearch('javascript')
+    };
+    this.videoSearch('Bob Sponge');
   }
 
   videoSearch(term) {
-    YTSearch({key: API_KEY, term}, (videos) => {
+    YTSearch({ key: API_KEY, term }, videos => {
       this.setState({
         videos,
         selectedVideo: videos[0]
-      })
-    })
+      });
+    });
   }
-
   render() {
     return (
-      <div style={{height: '100vh'}}>
+      <div style={{ height: '100vh' }}>
         <SearchBar onSearch={term => this.videoSearch(term)} />
         <Grid>
           <VideoEmbed video={this.state.selectedVideo} />
           <Video
             videos={this.state.videos}
-            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
           />
         </Grid>
         <Footer />
@@ -60,5 +57,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
