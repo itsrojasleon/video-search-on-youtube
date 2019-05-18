@@ -3,7 +3,6 @@ import SearchBar from './videos-youtube/containers/search-bar';
 import Video from './videos-youtube/components/video';
 import VideoEmbed from './videos-youtube/components/video-embed';
 import YTSearch from 'youtube-api-search';
-import Footer from './videos-youtube/components/footer';
 import styled from 'styled-components';
 import { API_KEY } from './utils/apiKey';
 
@@ -52,7 +51,6 @@ class App extends Component {
             onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
           />
         </Grid>
-        <Footer />
       </div>
     );
   }
