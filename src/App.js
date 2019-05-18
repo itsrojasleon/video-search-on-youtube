@@ -9,9 +9,7 @@ import { API_KEY } from './utils/apiKey';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr;
   width: 80%;
-  height: 87vh;
   margin: auto;
   overflow: hidden;
   @media (max-width: 769px) {

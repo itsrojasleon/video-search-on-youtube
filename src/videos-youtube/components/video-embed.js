@@ -9,6 +9,7 @@ const Container = styled.div`
   padding-top: 30px;
   height: 0;
   overflow: hidden;
+  align-self: flex-start;
 `;
 const Iframe = styled.iframe`
   position: absolute;
@@ -50,7 +51,7 @@ class VideoEmbed extends React.Component {
           </Container>
           <div>
             <h3>{snippet.title}</h3>
-            <h4 style={{ color: '#616161' }}>
+            <h4 style={{ color: 'rgb(150,150,150)' }}>
               Published on: {convertDate(snippet.publishedAt)}
             </h4>
           </div>

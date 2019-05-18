@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #f5f5f5;
+`;
 const Search = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 20px;
   flex-wrap: wrap;
   background: white;
-  max-width: 100%;
+  max-width: 80%;
+  margin: auto;
   align-items: center;
-  border-bottom: 1px solid #f5f5f5;
   @media (max-width: 769px) {
     display: grid;
     grid-template-columns: 1fr;
@@ -81,36 +85,38 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <Search>
-        <Content>
-          <a
-            style={{
-              fontSize: '16px',
-              position: 'absolute',
-              top: '10px',
-              left: '7px'
-            }}>
-            <i
-              style={{ color: 'rgb(136,136,136)' }}
-              className="fas fa-search"
+      <Container>
+        <Search>
+          <Content>
+            <a
+              style={{
+                fontSize: '16px',
+                position: 'absolute',
+                top: '10px',
+                left: '7px'
+              }}>
+              <i
+                style={{ color: 'rgb(136,136,136)' }}
+                className="fas fa-search"
+              />
+            </a>
+            <Input
+              placeholder="Search"
+              value={this.state.term}
+              onChange={event => this.handleSearch(event.target.value)}
             />
-          </a>
-          <Input
-            placeholder="Search"
-            value={this.state.term}
-            onChange={event => this.handleSearch(event.target.value)}
-          />
-          <ButtonSearch onClick={() => this.handleSearch(this.state.term)}>
-            Go!
-          </ButtonSearch>
-        </Content>
-        <A
-          rel="noopener noreferrer"
-          target="_blank"
-          href="https://github.com/rojasleon/video-search-on-youtube">
-          <i style={{ fontSize: 23 }} className="fab fa-github" />
-        </A>
-      </Search>
+            <ButtonSearch onClick={() => this.handleSearch(this.state.term)}>
+              Go!
+            </ButtonSearch>
+          </Content>
+          <A
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/rojasleon/video-search-on-youtube">
+            <i style={{ fontSize: 23 }} className="fab fa-github" />
+          </A>
+        </Search>
+      </Container>
     );
   }
 }

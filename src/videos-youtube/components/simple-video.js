@@ -10,11 +10,15 @@ const Video = styled.div`
   transition: 0.3s;
   &:hover {
     cursor: pointer;
-    background: #f5f5f5;
+    background: rgb(247, 247, 247);
   }
   @media (max-width: 820px) {
-    width: 100%;
+    width: 90%;
+    margin: auto;
   }
+`;
+const Data = styled.div`
+  padding: 10px;
 `;
 
 const SimpleVideo = ({ video, onVideoSelect }) => {
@@ -25,10 +29,10 @@ const SimpleVideo = ({ video, onVideoSelect }) => {
       <div>
         <img style={{ width: '100%' }} src={image} alt={title} />
       </div>
-      <div>
+      <Data>
         <div style={{ marginBottom: '10px' }}>{title}</div>
         <span style={{ color: '#727272' }}>{video.snippet.channelTitle}</span>
-      </div>
+      </Data>
     </Video>
   );
 };
